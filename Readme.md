@@ -1,3 +1,3 @@
 #Game
 
-https://chernat.github.io/Game/
+https://chernat.github.io/game/
