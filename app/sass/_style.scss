@@ -1,0 +1,69 @@
+@import "var";
+
+body {
+  background-color: $color-bg;
+  color: grey;
+  text-align: center;
+}
+
+.container {
+  max-width: ($width-col * 12) + ($grid-gap * 11);
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, $width-col);
+  grid-template-columns: repeat(auto-fill, $height-col);
+  grid-gap: $grid-gap;
+  padding-top: 100px;
+}
+
+.box {
+  background: $color-main;
+  @include width-height($width-col, $height-col);
+  transition: background-color 5s;
+  &:hover {
+    background-color: $color-secondary;
+    transition: background-color 0s;
+    }
+}
+
+.switcher:checked ~ .container .box {
+  background: none;
+  border-radius: 50%;
+  border: 1px solid $color-secondary;
+  @include width-height($width-col, $height-col);
+  transform: scale(1.7);
+  &:hover {
+      background-color: $color-secondary;
+      transition: background-color 0s;
+      }
+}
+input[type="checkbox"] {
+  display: none;
+  & + label {
+    display: inline-block;
+    position: relative;
+    font-style: italic;
+    font-weight: bold;
+    text-align: left;
+    font-size: 20px;
+    margin-top: 30px;
+    padding-left: 25px;
+    &::before {
+      content: '';
+      @include width-height(20px, 20px);
+      background: $color-main;
+      position: absolute;
+      top: 0;
+      left: 0;
+      }}
+  &:checked + label::after {
+      position: absolute;
+      content: '';
+      @include width-height(18px, 10px);
+      left: 0;
+      top: 0;
+      border-left: 2px solid $color-secondary;
+      border-bottom: 2px solid $color-secondary;
+      transform: rotate(-45deg);
+      }
+}
