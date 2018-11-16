@@ -1,5 +1,3 @@
-@import "var";
-
 body {
   background-color: $color-bg;
   color: grey;
@@ -18,9 +16,9 @@ body {
 
 .box {
   background: $color-main;
-  @include width-height($width-col, $height-col);
   transition: background-color 5s;
-  
+  @include width-height($width-col, $height-col);
+
   &:hover {
     background-color: $color-secondary;
     transition: background-color 0s;
@@ -31,9 +29,9 @@ body {
   background: none;
   border-radius: 50%;
   border: 1px solid $color-secondary;
-  @include width-height($width-col, $height-col);
   transform: scale(1.7);
-  
+  @include width-height($width-col, $height-col);
+
   &:hover {
       background-color: $color-secondary;
       transition: background-color 0s;
@@ -41,7 +39,6 @@ body {
 }
 input[type="checkbox"] {
   display: none;
-  
   & + label {
     display: inline-block;
     position: relative;
@@ -51,24 +48,25 @@ input[type="checkbox"] {
     font-size: 20px;
     margin-top: 30px;
     padding-left: 25px;
-    
+
     &::before {
       content: '';
-      @include width-height(20px, 20px);
       background: $color-main;
       position: absolute;
       top: 0;
       left: 0;
-      }}
-  
+      @include width-height(20px, 20px);
+      }
+    }
+
   &:checked + label::after {
       position: absolute;
       content: '';
-      @include width-height(18px, 10px);
       left: 0;
       top: 0;
       border-left: 2px solid $color-secondary;
       border-bottom: 2px solid $color-secondary;
       transform: rotate(-45deg);
+      @include width-height(18px, 10px);
       }
 }
