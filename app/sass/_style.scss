@@ -20,6 +20,7 @@ body {
   background: $color-main;
   @include width-height($width-col, $height-col);
   transition: background-color 5s;
+  
   &:hover {
     background-color: $color-secondary;
     transition: background-color 0s;
@@ -32,6 +33,7 @@ body {
   border: 1px solid $color-secondary;
   @include width-height($width-col, $height-col);
   transform: scale(1.7);
+  
   &:hover {
       background-color: $color-secondary;
       transition: background-color 0s;
@@ -39,6 +41,7 @@ body {
 }
 input[type="checkbox"] {
   display: none;
+  
   & + label {
     display: inline-block;
     position: relative;
@@ -48,6 +51,7 @@ input[type="checkbox"] {
     font-size: 20px;
     margin-top: 30px;
     padding-left: 25px;
+    
     &::before {
       content: '';
       @include width-height(20px, 20px);
@@ -56,6 +60,7 @@ input[type="checkbox"] {
       top: 0;
       left: 0;
       }}
+  
   &:checked + label::after {
       position: absolute;
       content: '';
